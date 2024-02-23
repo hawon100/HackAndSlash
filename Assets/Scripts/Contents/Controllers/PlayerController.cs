@@ -14,9 +14,31 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        Movement();
+        Attack();
+    }
 
-        agent.transform.position = new Vector3(h, 0, v);
+    void Movement()
+    {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        Vector3 moveDirection = new Vector3(h, 0f, v).normalized;
+
+        if (moveDirection.magnitude >= 0.1f)
+        {
+            Vector3 moveDestination = transform.position + moveDirection;
+            agent.SetDestination(moveDestination);
+        }
+    }
+
+    void Attack()
+    {
+        bool click = Input.GetMouseButtonDown(0);
+
+        if (click)
+        {
+
+        }
     }
 }
