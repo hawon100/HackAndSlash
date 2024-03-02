@@ -18,7 +18,6 @@ public class Managers : MonoBehaviour
     PoolManager _pool = new PoolManager();
     ResourceManager _resource = new ResourceManager();
     SoundManager _sound = new SoundManager();
-    AudioManager _audio = new AudioManager();
     MapManager _map = new MapManager();
 
     public static DataManager Data { get { return Instance._data; } }
@@ -26,7 +25,6 @@ public class Managers : MonoBehaviour
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SoundManager Sound { get { return Instance._sound; } }
-    public static AudioManager Audio { get { return Instance._audio; } }
     public static MapManager Map { get { return Instance._map; } }
 
     private void Awake()
@@ -50,7 +48,6 @@ public class Managers : MonoBehaviour
 
             s_instance._pool.Init();
             s_instance._sound.Init();
-            s_instance._audio.Init();
         }
     }
 

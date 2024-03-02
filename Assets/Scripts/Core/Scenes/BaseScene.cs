@@ -15,10 +15,8 @@ public abstract class BaseScene : MonoBehaviour
     protected virtual void Init()
     {
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
-        Object audio = GameObject.FindObjectOfType(typeof(AudioManager));
 
         if (obj == null) Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
-        if (audio == null) Managers.Resource.Instantiate("Audio/AudioManager").name = "@AudioManager";
     }
 
     public abstract void Clear();

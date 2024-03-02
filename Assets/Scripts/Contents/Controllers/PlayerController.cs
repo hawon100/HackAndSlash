@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,30 +13,21 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Movement();
-        Attack();
     }
 
     void Movement()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
+        // 이동 방향 설정
         Vector3 moveDirection = new Vector3(h, 0f, v).normalized;
 
+        // NavMeshAgent에 이동 목표 설정
         if (moveDirection.magnitude >= 0.1f)
         {
             Vector3 moveDestination = transform.position + moveDirection;
             agent.SetDestination(moveDestination);
-        }
-    }
-
-    void Attack()
-    {
-        bool click = Input.GetMouseButtonDown(0);
-
-        if (click)
-        {
-
         }
     }
 }
